@@ -73,3 +73,12 @@ fun ejercicio15(){
  * otra con todas las letras mayúsculas y otra solo con la primera letra del nombre y de los apellidos
  * en mayúscula. El usuario puede introducir su nombre combinando mayúsculas y minúsculas como quiera.
  */
+
+ fun ejercicio18(){
+    println("Nombre completo: ")
+    nombre = readln()
+    println (nombre)
+
+
+    
+ }
