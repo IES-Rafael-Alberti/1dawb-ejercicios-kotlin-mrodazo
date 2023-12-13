@@ -1,3 +1,5 @@
+import java.util.*
+
 /**
  * Ejercicios de la U1:
  *
@@ -60,7 +62,7 @@ fun ejercicio12(){
 fun ejercicio15(){
     println("Introduzca la cantidad de dinero depositado en la cuenta (€): ")
     val depositado = readln().toDouble()
-    var interes = (depositado * 1.04)
+    val interes = (depositado * 1.04)
     println("Ahorros en el primer año: ${"(%.2f)".format(interes)}€")
     println("Ahorros en el segundo año: ${"(%.2f)".format(interes*(1.04))}€")
     println("Ahorros en el tercer año: ${"(%.2f)".format((interes*(1.04))*1.04)}€")
@@ -76,9 +78,57 @@ fun ejercicio15(){
 
  fun ejercicio18(){
     println("Nombre completo: ")
-    nombre = readln()
-    println (nombre)
+    val nom = readln()
+    /**
+     * Con nomtitle lo que se está haciendo es con el split hacer una lista, con el join se pasa la lista
+     * a cadena de caracteres separadas con un espacio pero Kotlin admite predicado, que lo que hace es
+     * por cada elemento (it) coge el primer caracter y lo pone en mayúsculas
+     */
 
+        println ("${nom.lowercase()} - ${nom.uppercase()} - ${nom.split(' ').joinToString(" " )
+        { it.replaceFirstChar (Char::uppercaseChar)}}").toString()
+        /**
+         * - ${nom.replaceFirstChar {
+         *         if (it.isLowerCase()) it.titlecase(
+         *             Locale.getDefault()
+         *         ) else it.toString()
+         *     }}")
+          */
 
-    
+    /** replace.FirstChar sólo coge el nombre, no los apellidos. Recorrer la cadena para que lo haga
+     * bien. Crear una función, por ejemplo capitalize y con split en los espacios hacerlo
+     */
  }
+
+fun capitalize(){
+    val cadena: String
+
+
+}
+
+
+/**
+ * Los teléfonos de una empresa tienen el siguiente formato prefijo-número-extension donde
+ * el prefijo es el código del país +34, y la extensión tiene dos dígitos (por ejemplo +34-913724710-56).
+ * Escribir un programa que pregunte por un número de teléfono con este formato y muestre por pantalla el
+ * número de teléfono sin el prefijo y la extensión.
+ */
+
+fun ejercicio20(){
+    println("Introducta el teléfono con el siguiente formato: +xx-yyyyyyyy-zz (por ejemplo +34-913724710-56): ")
+    val tel = readln()
+    val lista: List<String> = tel.split('-').toList()
+    println("El teléfono sin prefijo ni extensión es: ${lista[1]}")
+
+}
+    /**
+     * Escribir un programa que pida al usuario que introduzca una frase en la consola y muestre por pantalla la frase invertida
+     */
+
+fun ejercicio21() {
+    println("Indique una frase: ")
+    val frase = readln()
+    println(frase.reversed())
+
+
+}
