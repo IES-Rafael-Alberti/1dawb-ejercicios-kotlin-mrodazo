@@ -59,5 +59,72 @@ fun main() {
       * Escribir un programa que pida al usuario que introduzca una frase en la consola y muestre por pantalla la frase invertida
       */
 
-     ejercicio21()
+     //ejercicio21()
+
+
+     /**
+     * Escribir un programa que pida al usuario que introduzca una frase en la consola y una vocal,
+      * y después muestre por pantalla la misma frase pero con la vocal introducida en mayúscula.
+      */
+
+     //ejercicio22()
+
+
+     /**
+      * Escribir un programa que pregunte por consola el precio de un producto en euros con dos decimales
+      * y muestre por pantalla el número de euros y el número de céntimos del precio introducido.
+      */
+
+     //ejercicio24()
+
+
+     /**
+      * Escribir un programa que pregunte al usuario la fecha de su nacimiento en formato dd/mm/aaaa
+      * y muestra por pantalla, el día, el mes y el año. Adaptar el programa anterior para que también funcione
+      * cuando el día o el mes se introduzcan con un solo carácter.
+      */
+
+     //ejercicio25()
+
+     /**
+      * Escribir un programa que pregunte por consola por los productos de una cesta de la compra,
+      * separados por comas, y muestre por pantalla cada uno de los productos en una línea distinta.
+      */
+
+     //ejercicio26()
+
+     /**
+      * Escribir un programa que pregunte el nombre el un producto, su precio y un número de unidades y muestre
+      * por pantalla una cadena con el nombre del producto seguido de su precio unitario con 6 dígitos enteros y 2 decimales,
+      * el número de unidades con tres dígitos y el coste total con 8 dígitos enteros y 2 decimales.
+      */
+
+     //ejercicio27()
+
+
+/**
+ * U2:
+ *   Sentencias condicionales: 2, 3, 6, 8 y 10.
+ *   Sentencias iterativas: 2, 4, 6, 7, 8, 13, 15, 18, 19 y 25.
+ *   Captura de excepciones: 2, 3 y 4.
+ */
+
+     /**
+      * Ejercicio 2.1.2
+      * Escribir un programa que almacene la cadena de caracteres contraseña en una variable,
+      * pregunte al usuario por la contraseña e imprima por pantalla si la contraseña introducida por el
+      * usuario coincide con la guardada en la variable sin tener en cuenta mayúsculas y minúsculas.
+      */
+
+     //ejercicio202()
+
+
+     /**
+      * Ejercicio 2.1.3
+      * Escribir un programa que pida al usuario dos números y muestre por pantalla su división.
+      * Si el divisor es cero el programa debe mostrar un error.
+      */
+
+     ejercicio203()
+
 }
