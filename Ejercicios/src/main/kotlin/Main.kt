@@ -125,6 +125,33 @@ fun main() {
       * Si el divisor es cero el programa debe mostrar un error.
       */
 
-     ejercicio203()
+     //ejercicio203()
 
+
+     /**
+      * Ejercicio 2.1.6
+      * Los alumnos de un curso se han dividido en dos grupos A y B de acuerdo al sexo y el nombre.
+      * El grupo A esta formado por las mujeres con un nombre anterior a la M y los hombres con un
+      * nombre posterior a la N y el grupo B por el resto. Escribir un programa que pregunte al
+      * usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
+      */
+
+     //ejercicio206 ()
+
+
+     /**
+      * Ejercicio 2.1.8
+      * En una determinada empresa, sus empleados son evaluados al final de cada año.
+      * Los puntos que pueden obtener en la evaluación comienzan en 0.0 y pueden ir aumentando,
+      * traduciéndose en mejores beneficios. Los puntos que pueden conseguir los empleados pueden
+      * ser 0.0, 0.4, 0.6 o más, pero no valores intermedios entre las cifras mencionadas.
+      * A continuación se muestra una tabla con los niveles correspondientes a cada puntuación.
+      * La cantidad de dinero conseguida en cada nivel es de 2.400€ multiplicada por la puntuación del nivel.
+      *
+      * Nivel Inaceptable --> Puntuación 0.0
+      * Nivel Aceptable --> Puntuación 0.4
+      * Nivel Meritorio --> Puntuación 0.6 o más
+      */
+
+     ejercicio208 ()
 }
