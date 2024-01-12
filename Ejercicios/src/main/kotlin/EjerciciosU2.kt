@@ -117,41 +117,104 @@ fun ejercicio206() {
 
 }
 
-fun comprobarPuntuacion(puntos: Double) =
-        ((puntos == 0.0) || (puntos == 0.4) || (puntos >= 0.6))
-
-fun nivel (puntos: Double) : String {
-    if (puntos == 0.0) {
-        return "Nivel inaceptable"
-    }
-    else if (puntos == 0.4) {
-        return "Nivel aceptable"
-    }
-    else if (puntos >= 0.6) {
-        return 'Nivel meritorio'
-    }
-    else {
-
-    }
-
-}
 
 /**
  * Ejercicio 2.1.8
- * En una determinada empresa, sus empleados son evaluados al final de cada año.
- * Los puntos que pueden obtener en la evaluación comienzan en 0.0 y pueden ir aumentando,
- * traduciéndose en mejores beneficios. Los puntos que pueden conseguir los empleados pueden
- * ser 0.0, 0.4, 0.6 o más, pero no valores intermedios entre las cifras mencionadas.
- * A continuación se muestra una tabla con los niveles correspondientes a cada puntuación.
- * La cantidad de dinero conseguida en cada nivel es de 2.400€ multiplicada por la puntuación del nivel.
+ * En una determinada empresa, sus empleados son evaluados al final de cada año. Los puntos que pueden obtener
+ * en la evaluación comienzan en 0.0 y pueden ir aumentando, traduciéndose en mejores beneficios. Los puntos que
+ * pueden conseguir los empleados pueden ser 0.0, 0.4, 0.6 o más, pero no valores intermedios entre las cifras
+ * mencionadas. A continuación se muestra una tabla con los niveles correspondientes a cada puntuación. La cantidad
+ * de dinero conseguida en cada nivel es de 2.400€ multiplicada por la puntuación del nivel.
  *
- * Nivel Inaceptable --> Puntuación 0.0
- * Nivel Aceptable --> Puntuación 0.4
- * Nivel Meritorio --> Puntuación 0.6 o más
+ * Nivel	Puntuación
+ * Inaceptable	0.0
+ * Aceptable	0.4
+ * Meritorio	0.6 o más
+ *
+ * Escribir un programa que lea la puntuación del usuario e indique su nivel de rendimiento, así como la cantidad
+ * de dinero que recibirá el usuario.
  */
 
-fun ejercicio208 (){
+
+fun comprobarPuntuacion(puntos: Double) =
+    ((puntos == 0.0) || (puntos == 0.4) || (puntos >= 0.6))
+
+fun comprobarDouble (puntos: String) : Boolean {
+    try {
+        puntos.toDouble()
+        return true
+    } catch (e: NumberFormatException) {
+        return false
+    }
+}
+
+fun nivel (puntos: Double) {
+    if (puntos == 0.0) {
+        println("Nivel inaceptable")
+    } else if (puntos == 0.4) {
+        println("Nivel aceptable")
+    } else if (puntos in 0.6..1.0) {
+        println("Nivel meritorio")
+    } else {
+        println("Error")
+    }
+}
+
+fun bonificacion (puntos: Double) = (puntos * 2400)
+
+}
+
+fun ejercicio208 () {
+
+    println("Introduzca su puntuación: ")
+    val puntos = readln()
+
+    if (comprobarDouble(puntos)) {
+        when (puntos.toDouble()) {
+            0.0 -> nivel(puntos.toDouble())
+            0.4 -> nivel(puntos.toDouble())
+        }
+        else {
+            if (puntos.toDouble() in 0.6..1.0)
+        }
+
+    }
 
 
+
+
+
+}
+
+
+/**
+ * Ejercicio 2.1.25 creo
+ */
+
+fun ejercicio2125 () {
+
+    println("Introduzca una frase")
+
+    val frase = readln()
+
+    val listaPalabras = frase.split(' ')
+
+    var palabraMayor = ""
+
+    var cont = 0
+
+
+    for (palabra in listaPalabras) {
+        if (palabra.length > palabraMayor.length) {
+            palabraMayor = palabra
+            cont=1
+        }
+        else if (palabra.length == palabraMayor.length) {
+            cont++
+        }
+    }
+
+    println("La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
+            " hay ${listaPalabras.size} palabras.")
 
 }
