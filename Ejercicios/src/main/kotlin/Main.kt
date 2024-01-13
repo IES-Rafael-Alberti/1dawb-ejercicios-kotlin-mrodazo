@@ -153,10 +153,10 @@ fun main() {
      * Nivel Meritorio --> Puntuación 0.6 o más
      */
 
-    //ejercicio208 ()
+    ejercicio208 ()
 
 
-    ejercicio2125()
+    //ejercicio2125()
 
 
     /** UD3
@@ -172,7 +172,7 @@ fun main() {
      * Escribir una función que reciba como parámetro una lista con el formato mencionado anteriormente y retorne los domicilios de cada cliente al cual se le debe enviar una factura de compra. Notar que cada cliente puede haber hecho más de una compra en el mes, por lo que la función debe retornar una estructura que contenga cada domicilio una sola vez.
      */
 
-    ejercicio331()
+    //ejercicio331()
 
 
 }

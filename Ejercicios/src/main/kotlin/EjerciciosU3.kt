@@ -1,3 +1,10 @@
+/**
+ * U3:
+ * Listas y tuplas: 4, 6, 8, 9, 10 y 13.
+ * Diccionarios: 3, 5, 6, 7, 8, 10 y 11.
+ * Conjuntos: 1, 2, 3, 4, 5 y 6.
+ */
+
 
 /**
  * Ejercicio 3.3.1¶

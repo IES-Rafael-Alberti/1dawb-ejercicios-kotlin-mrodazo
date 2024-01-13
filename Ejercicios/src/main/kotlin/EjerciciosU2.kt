@@ -136,85 +136,90 @@ fun ejercicio206() {
  */
 
 
-fun comprobarPuntuacion(puntos: Double) =
-    ((puntos == 0.0) || (puntos == 0.4) || (puntos >= 0.6))
+fun comprobarPuntuacion(puntos: Double): Boolean =
+    ((puntos == 0.0) || (puntos == 0.4) || (puntos in 0.6..1.0))
 
-fun comprobarDouble (puntos: String) : Boolean {
+fun comprobarDouble(entrada: String): Boolean {
     try {
-        puntos.toDouble()
-        return true
+        entrada.toDouble()
     } catch (e: NumberFormatException) {
         return false
     }
+    return true
 }
 
-fun nivel (puntos: Double) {
-    if (puntos == 0.0) {
-        println("Nivel inaceptable")
-    } else if (puntos == 0.4) {
-        println("Nivel aceptable")
-    } else if (puntos in 0.6..1.0) {
-        println("Nivel meritorio")
-    } else {
-        println("Error")
+fun indicarNivel(puntos: Double): String {
+    val nivel: String
+    when (puntos) {
+        0.0 -> {
+            nivel = "inaceptable"
+        }
+
+        0.4 -> {
+            nivel = "aceptable"
+        }
+
+        else -> {
+            nivel = "meritorio"
+        }
+    }
+    return nivel
+}
+
+fun bonificacion(puntos: Double) = (puntos * 2400)
+
+
+fun ejercicio208() {
+
+    var exito = false
+
+    while (!exito) {
+        println("Introduzca su puntuación: ")
+        val entrada = readln()
+
+        if (comprobarDouble(entrada)) {
+            val puntos = entrada.toDouble()
+            if (comprobarPuntuacion(puntos)) {
+                println("Nivel ${indicarNivel(puntos)}, su bonificación es: %.2f".format(bonificacion(puntos)) + "€")
+                exito = true
+            } else {
+                println("Puntuación no válida, introduzca una correcta.")
+            }
+        } else {
+            println("Formato no válido, introduzca: 0.0, 0.4 o de 0.6 a 1.0")
+        }
     }
 }
 
-fun bonificacion (puntos: Double) = (puntos * 2400)
+    /**
+     * Ejercicio 2.1.25 creo
+     */
 
-}
+    fun ejercicio2125() {
 
-fun ejercicio208 () {
+        println("Introduzca una frase")
 
-    println("Introduzca su puntuación: ")
-    val puntos = readln()
+        val frase = readln()
 
-    if (comprobarDouble(puntos)) {
-        when (puntos.toDouble()) {
-            0.0 -> nivel(puntos.toDouble())
-            0.4 -> nivel(puntos.toDouble())
+        val listaPalabras = frase.split(' ')
+
+        var palabraMayor = ""
+
+        var cont = 0
+
+
+        for (palabra in listaPalabras) {
+            if (palabra.length > palabraMayor.length) {
+                palabraMayor = palabra
+                cont = 1
+            } else if (palabra.length == palabraMayor.length) {
+                cont++
+            }
         }
-        else {
-            if (puntos.toDouble() in 0.6..1.0)
-        }
+
+        println(
+            "La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
+                    " hay ${listaPalabras.size} palabras."
+        )
 
     }
-
-
-
-
-
-}
-
-
-/**
- * Ejercicio 2.1.25 creo
- */
-
-fun ejercicio2125 () {
-
-    println("Introduzca una frase")
-
-    val frase = readln()
-
-    val listaPalabras = frase.split(' ')
-
-    var palabraMayor = ""
-
-    var cont = 0
-
-
-    for (palabra in listaPalabras) {
-        if (palabra.length > palabraMayor.length) {
-            palabraMayor = palabra
-            cont=1
-        }
-        else if (palabra.length == palabraMayor.length) {
-            cont++
-        }
-    }
-
-    println("La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
-            " hay ${listaPalabras.size} palabras.")
-
-}
