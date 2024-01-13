@@ -191,35 +191,131 @@ fun ejercicio208() {
     }
 }
 
-    /**
-     * Ejercicio 2.1.25 creo
-     */
+/**
+ * Ejercicio 2.1.10¶
+ * La pizzería Bella Napoli ofrece pizzas vegetarianas y no vegetarianas a sus clientes. Los ingredientes para cada tipo de pizza aparecen a continuación.
+ *
+ * Ingredientes vegetarianos: Pimiento y tofu.
+ * Ingredientes no vegetarianos: Peperoni, Jamón y Salmón.
+ *
+ * Escribir un programa que pregunte al usuario si quiere una pizza vegetariana o no, y en función de su respuesta le muestre un menú con los ingredientes disponibles para que elija. Solo se puede eligir un ingrediente además de la mozzarella y el tomate que están en todas la pizzas. Al final se debe mostrar por pantalla si la pizza elegida es vegetariana o no y todos los ingredientes que lleva.
+ */
 
-    fun ejercicio2125() {
+fun comprobarTipo(respuestaPizza: String) = (respuestaPizza == "v" || respuestaPizza == "n")
 
-        println("Introduzca una frase")
+fun mostrarMenu(respuestaPizza: String): Set<String> {
+    var menu = mutableListOf<String>()
+    when (respuestaPizza) {
+        "v" -> menu = mutableListOf("pimiento", "tofu")
+        "n" -> menu = mutableListOf("peperoni", "jamón", "salmón")
+    }
+    return menu.toSet()
+}
 
-        val frase = readln()
-
-        val listaPalabras = frase.split(' ')
-
-        var palabraMayor = ""
-
-        var cont = 0
+fun comprobarIngrediente(menu: Set<String>, ingrediente: String) : Boolean  = ingrediente in menu
 
 
-        for (palabra in listaPalabras) {
-            if (palabra.length > palabraMayor.length) {
-                palabraMayor = palabra
-                cont = 1
-            } else if (palabra.length == palabraMayor.length) {
-                cont++
+fun tipoPizza (respuestaPizza: String) : String {
+    var pizza = ""
+
+    when(respuestaPizza) {
+        "v" -> pizza = "vegetariana"
+        "n" -> pizza = "no vegetariana"
+    }
+    return pizza
+}
+
+fun ingredientesElegidos (ingrediente: String) : String {
+    val ingredientes = mutableListOf<String>("mozzarella", "tomate")
+
+    ingredientes.add(ingrediente)
+
+    return (ingredientes.toSet().joinToString(", "))
+}
+
+fun ejercicio2010() {
+    var exito = false
+
+    while (!exito) {
+        println("¿Desea pizza vegetariana (v) o no vegetariana (n)?")
+        val respuestaPizza = readln().lowercase()
+        if (comprobarTipo(respuestaPizza)) {
+            val menu = mostrarMenu(respuestaPizza)
+            println("¿Qué ingrediente desea, además de mozarella y tomate? $menu")
+            val ingrediente = readln().lowercase()
+            if (comprobarIngrediente(menu, ingrediente)) {
+                val pizza = tipoPizza(respuestaPizza)
+                println("La pizza escogida es $pizza y los ingredientes son ${ingredientesElegidos(ingrediente)}")
+                exito = true
+            } else {
+                println("El ingrediente que indica no está disponible, por favor elija de nuevo el tipo de pizza y un ingrediente del menú")
             }
         }
-
-        println(
-            "La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
-                    " hay ${listaPalabras.size} palabras."
-        )
-
+        else {
+            println("El tipo de pizza escogida no la tenemos, por favor elija vegetariana (v) o no vegetariana(n)")
+        }
     }
+}
+
+
+fun ejercicio2010__2() {
+    var exitoTipo = false
+
+    while (!exitoTipo) {
+        println("¿Desea pizza vegetariana (v) o no vegetariana (n)?")
+        val respuestaPizza = readln().lowercase()
+        if (comprobarTipo(respuestaPizza)) {
+            exitoTipo = true
+            val menu = mostrarMenu(respuestaPizza)
+
+            var exitoIngrediente = false
+            while (!exitoIngrediente) {
+                println("¿Qué ingrediente desea, además de mozarella y tomate? $menu")
+                val ingrediente = readln().lowercase()
+                if (comprobarIngrediente(menu, ingrediente)) {
+                    val pizza = tipoPizza(respuestaPizza)
+                    println("La pizza escogida es $pizza y los ingredientes son ${ingredientesElegidos(ingrediente)}")
+                    exitoIngrediente = true
+                } else {
+                    println("El ingrediente que indica no está disponible, por favor elija de nuevo el tipo de pizza y un ingrediente del menú")
+                }
+            }
+        }
+        else {
+            println("El tipo de pizza escogida no la tenemos, por favor elija vegetariana (v) o no vegetariana(n)")
+        }
+    }
+}
+
+        /**
+         * Ejercicio 2.1.25 creo
+         */
+
+        fun ejercicio2125() {
+
+            println("Introduzca una frase")
+
+            val frase = readln()
+
+            val listaPalabras = frase.split(' ')
+
+            var palabraMayor = ""
+
+            var cont = 0
+
+
+            for (palabra in listaPalabras) {
+                if (palabra.length > palabraMayor.length) {
+                    palabraMayor = palabra
+                    cont = 1
+                } else if (palabra.length == palabraMayor.length) {
+                    cont++
+                }
+            }
+
+            println(
+                "La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
+                        " hay ${listaPalabras.size} palabras."
+            )
+
+        }

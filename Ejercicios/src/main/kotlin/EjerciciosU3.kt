@@ -51,7 +51,7 @@ fun domicilios(compras: List<List<Any>>) : List<String> {
      *      */
      *     return listaDomicilios.toSet().toList().sorted()
      *
-     *     Otra, usando el map que coge la lista ygenera otra cogiendo la info entre las llaves
+     *     Otra, usando el map que coge la lista y genera otra cogiendo la info entre las llaves
      */
 
     return compras.map{ it[3].toString() }.toSet().toList().sorted()
