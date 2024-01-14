@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 /**
  * U2:
  *   Sentencias condicionales: 2, 3, 6, 8 y 10.
@@ -15,7 +17,10 @@
 
 /**
  * Función que compara 2 Strings para ver si son iguales. Para ello los pasa a minúsculas.
- * Retorna verdadero o falso
+ * @param string String primer String a comparar
+ * @param string2 String segundo String a comparar
+ *
+ * @return Boolean verdadero o falso
  */
 fun comparaContrasena(string: String, string2: String): Boolean {
     return string.lowercase() == string2.lowercase()
@@ -43,6 +48,16 @@ fun ejercicio202() {
  * Si el divisor es cero el programa debe mostrar un error.
  */
 
+/**
+ * Realiza la división de 2 números enteros
+ *
+ * @param num1 Int Dividendo
+ * @param num2 Int Divisor
+ *
+ * @return Float Resultado
+ *
+ */
+
 fun division(num1: Int, num2: Int): Float {
     return (num1.toFloat() / num2.toFloat())
 }
@@ -63,9 +78,37 @@ fun ejercicio203() {
     }
 }
 
+/**
+ * Ejercicio 2.1.6
+ * Los alumnos de un curso se han dividido en dos grupos A y B de acuerdo al sexo y el nombre.
+ * El grupo A esta formado por las mujeres con un nombre anterior a la M y los hombres con un
+ * nombre posterior a la N y el grupo B por el resto. Escribir un programa que pregunte al
+ * usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
+ */
+
+/**
+ * Indica si la primera letra introducida va antes que la segunda
+ *
+ * @param letra_a String Primera letra a comparar
+ * @param letra_b String Segunda letra a comparar
+ *
+ * @return Boolean verdadero o falso
+ */
+
 fun esLetraAnterior(letra_a: String, letra_b: String): Boolean {
     return letra_a < letra_b
 }
+
+/**
+ * Indica a qué grupo (A o B) pertenece una persona según su sexo e inicial del nombre. Criterio indicado en la
+ * descripción del ejercicio.
+ *
+ * @param sexo String Sexo de la persona (hombre o mujer)
+ * @param nombre String Nombre de la persona
+ *
+ * @return String Grupo A o B
+ *
+ */
 
 fun perteneceGrupo(sexo: String, nombre: String): String {
 
@@ -86,6 +129,17 @@ fun perteneceGrupo(sexo: String, nombre: String): String {
  * hacer sólo un cálculo, es mejor así ya que If y Else devuelven un valor, por eso no se pone return.
  * Lo que siempre hay que decirle si no es una cosa, que es entonces (else).
  */
+
+/**
+ * Indica a qué grupo (A o B) pertenece una persona según su sexo e inicial del nombre. Criterio indicado en la
+ * descripción del ejercicio.
+ *
+ * @param sexo String Sexo de la persona (hombre o mujer)
+ * @param nombre String Nombre de la persona
+ *
+ * @return String Grupo A o B
+ *
+ */
 fun perteneceGrupo1(sexo: String, nombre: String) =
     if (
         (sexo.lowercase() == "hombre" && esLetraAnterior("N", nombre[0].uppercase()))
@@ -97,13 +151,7 @@ fun perteneceGrupo1(sexo: String, nombre: String) =
         "B"
     }
 
-/**
- * Ejercicio 2.1.6
- * Los alumnos de un curso se han dividido en dos grupos A y B de acuerdo al sexo y el nombre.
- * El grupo A esta formado por las mujeres con un nombre anterior a la M y los hombres con un
- * nombre posterior a la N y el grupo B por el resto. Escribir un programa que pregunte al
- * usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
- */
+
 
 fun ejercicio206() {
 
@@ -136,8 +184,24 @@ fun ejercicio206() {
  */
 
 
+/**
+ * Comprueba si la puntuación introducida está dentro de los parámetros permitidos (0.0, 0.4, 0.6>=1.0)
+ *
+ * @param puntos Double Puntuación introducida
+ *
+ * @return Boolean verdadero o falso
+ */
+
 fun comprobarPuntuacion(puntos: Double): Boolean =
     ((puntos == 0.0) || (puntos == 0.4) || (puntos in 0.6..1.0))
+
+/**
+ * Compruea si la entrada es un número Double
+ *
+ * @param entrada String texto introducido para ver si es un Double
+ *
+ * @return Boolean verdadero o falso
+ */
 
 fun comprobarDouble(entrada: String): Boolean {
     try {
@@ -147,6 +211,14 @@ fun comprobarDouble(entrada: String): Boolean {
     }
     return true
 }
+
+/**
+ * Indica el nivel según la puntiación obtenida
+ *
+ * @param puntos Double Puntuación introducida (0.0, 0.4, 0.6>=1.0)
+ *
+ * @return String Nivel inaceptable, aceptable o meritorio
+ */
 
 fun indicarNivel(puntos: Double): String {
     val nivel: String
@@ -165,6 +237,14 @@ fun indicarNivel(puntos: Double): String {
     }
     return nivel
 }
+
+/**
+ * Indica la bonificación obtenida según la puntuación indicada
+ *
+ * @param puntos Double Puntuación introducida (0.0, 0.4, 0.6>=1.0)
+ *
+ * @return Double puntos*2400
+ */
 
 fun bonificacion(puntos: Double) = (puntos * 2400)
 
@@ -201,7 +281,23 @@ fun ejercicio208() {
  * Escribir un programa que pregunte al usuario si quiere una pizza vegetariana o no, y en función de su respuesta le muestre un menú con los ingredientes disponibles para que elija. Solo se puede eligir un ingrediente además de la mozzarella y el tomate que están en todas la pizzas. Al final se debe mostrar por pantalla si la pizza elegida es vegetariana o no y todos los ingredientes que lleva.
  */
 
+/**
+ * Comprueba si la pizza elegida es vegetariana (v) o no vegetariana (n).
+ *
+ * @param respuestaPizza String Elección de pizza introducida
+ *
+ * @return Boolean verdadero o falso
+ */
+
 fun comprobarTipo(respuestaPizza: String) = (respuestaPizza == "v" || respuestaPizza == "n")
+
+/**
+ * Muestra el menú de la pizza dependiendo del tipo elegido.
+ *
+ * @param respuestaPizza String Elección de pizza introducida
+ *
+ * @return Set<String> menú de la pizza vegetariana o no vegetariana
+ */
 
 fun mostrarMenu(respuestaPizza: String): Set<String> {
     var menu = mutableListOf<String>()
@@ -212,8 +308,25 @@ fun mostrarMenu(respuestaPizza: String): Set<String> {
     return menu.toSet()
 }
 
+/**
+ * Comprueba que el ingrediente elegido está dentro del menú de la pizza escogida
+ *
+ * @param menu Set<String> Menú de la pizza vegetariana o no vegetariana
+ * @param ingrediente String Ingrediente elegido a comprobar
+ *
+ * @return Boolean verdadero o falso
+ */
+
 fun comprobarIngrediente(menu: Set<String>, ingrediente: String): Boolean = ingrediente in menu
 
+/**
+ * Indica el tipo de pizza escogido: v -> vegetariana || n -> no vegetariana
+ *
+ * @param respuestaPizza String Elección de pizza introducida
+ *
+ * @return pizza String Vegetariana o No vegetariana
+ *
+ */
 
 fun tipoPizza(respuestaPizza: String): String {
     var pizza = ""
@@ -224,6 +337,14 @@ fun tipoPizza(respuestaPizza: String): String {
     }
     return pizza
 }
+
+/**
+ * Crea un conjunto con todos los ingredientes que va a llevar la pizza. Mozzarella y tomate más el elegido
+ *
+ * @param ingrediente String Ingrediente elegido
+ *
+ * @return ingredientes String Ingredientes separados por una ','
+ */
 
 fun ingredientesElegidos(ingrediente: String): String {
     val ingredientes = mutableListOf<String>("mozzarella", "tomate")
@@ -290,22 +411,35 @@ fun ejercicio2010__2() {
  * Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años que ha cumplido (desde 1 hasta su edad).
  */
 
+/**
+ * Comprueba si se ha introducido un entero positivo (>=0)
+ *
+ * @param num String texto introducido para ver si es un entero positivo
+ *
+ * @return Boolean verdadero o falso || lanza excepción si no es un número
+ */
 fun comprobarEnteroPositivo(num: String): Boolean {
     try {
-        num.toInt() >= 0
+        return num.toInt() >= 0
     } catch (e: NumberFormatException) {
         return false
     }
-    return true
-
 }
 
+/**
+ * Imprime por pantalla todos los números desde el 1 hasta el introducido.
+ *
+ * @param num Int Último número a imprimir
+ *
+ * @return iteracionNum String Cadena de los números del 1 hasta num separados por ','
+ */
+
 fun mostrarIteracionNum(num: Int): String {
-    val edadCumplida = mutableListOf(1)
+    val iteracionNum = mutableListOf(1)
     for (i in 1..(num)) {
-        edadCumplida.add(i)
+        iteracionNum.add(i)
     }
-    return edadCumplida.toSet().joinToString(", ")
+    return iteracionNum.toSet().joinToString(", ")
 }
 
 
@@ -356,6 +490,15 @@ fun ejercicio214() {
  * ***
  * ****
  * *****
+ */
+
+/**
+ * Imprime un símbolo indicado repetidamente en forma de triángulo rectángulo, con una altura indicada
+ *
+ * @param num Int Altura del triángulo
+ * @param simbol String Símbolo a repetir
+ *
+ *
  */
 
 fun printearLineasSimbol(num: Int, simbol: String) {
@@ -411,6 +554,15 @@ fun ejercicio217() {
  * 9 7 5 3 1
  */
 
+/**
+ * Imprime los números en forma de triángulo rectángulo comenzando desde el 1 y progresando según se indique
+ *
+ * @param num1 Int Altura del triángulo
+ * @param num2 Int Progresión de los números
+ *
+ *
+ */
+
 fun printearTrianguloNum(num1: Int, num2: Int) {
     val lineas = mutableListOf(1)
     var suma = 1
@@ -461,10 +613,9 @@ fun ejercicio2113() {
     while (!terminar) {
         println("Introduzca una frase o palabra (escribir solamente 'salir' para terminar): ")
         eco = readln().lowercase()
-        if (eco != "salir"){
+        if (eco != "salir") {
             println(eco)
-        }
-        else{
+        } else {
             println("Fin")
             terminar = true
         }
@@ -499,11 +650,96 @@ fun ejercicio2115() {
     println("La suma de todos los números ingresados es: $sum")
 }
 
+/**
+ * Ejercicio 2.2.18
+ * Solicitar al usuario que ingrese números enteros positivos y, por cada uno, imprimir la suma de los dígitos que lo componen. La condición de corte es que se ingrese el número -1. Al finalizar, mostrar cuántos de los números ingresados por el usuario fueron números pares.
+ */
+
+/**
+ * Suma los dígitos de un número introducido
+ *
+ * @param digitos String entrada del número solicitado
+ *
+ * @return sum Int Suma de todos los dígitos que componen el número introducido
+ */
+
+fun sumarDigitos(digitos: String): Int {
+    var sum = 0
+    for (element in digitos) {
+        sum += element.toString().toInt()
+    }
+    return sum
+}
+
+/**
+ * Comrpueba si el número introducido es par o no
+ *
+ * @param digitos String entrada del número solicitado
+ *
+ * @return Boolean verdadero o falso
+ */
+
+fun comprobarPar (digitos: String) : Boolean = (digitos.toInt()%2 == 0)
+
+
+fun ejercicio2118() {
+    var sum = 0
+    var terminar = false
+    var pares = 0
+
+    while (!terminar) {
+        println("Ingrese un número y pulse 'enter' (marcar '-1' para terminar): ")
+        var entrada = readln()
+        if (comprobarEnteroPositivo(entrada)) {
+            println(sumarDigitos(entrada))
+            if (comprobarPar(entrada)) {
+                pares++
+            }
+        } else if (entrada.toInt() == -1) {
+            terminar = true
+        } else {
+            println("Error en formato. Ingrese un número y pulse 'enter' (marcar '0' para terminar): ")
+        }
+    }
+    println("Número de pares: $pares")
+
+}
+
+/**
+ * Ejercicio 2.2.19
+ * Mostrar un menú con tres opciones: 1- comenzar programa, 2- imprimir listado, 3-finalizar programa. A continuación, el usuario debe poder seleccionar una opción (1, 2 ó 3). Si elige una opción incorrecta, informarle del error. El menú se debe volver a mostrar luego de ejecutada cada opción, permitiendo volver a elegir. Si elige las opciones 1 ó 2 se imprimirá un texto. Si elige la opción 3, se interrumpirá la impresión del menú y el programa finalizará.
+ */
+
+fun ejercicio2119() {
+
+    val menu = listOf("1- comenzar programa", "2- imprimir listado", "3- finalizar programa")
+    var entrada = 0
+
+    do {
+        println("Elija una opción: ")
+        for (element in menu) {
+            println(element)
+        }
+        try {
+            entrada = readln().toInt()
+            if (entrada in 1..menu.size) {
+                if (entrada == 1 || entrada == 2) {
+                    println("Imprimiendo texto: bla bla ble bla bla")
+                } else break
+            } else {
+                println("Introduzca un número del menú")
+            }
+        } catch (e: NumberFormatException) {
+            println("Formato incorrecto, por favor, introduzca un número del menú.")
+        }
+    } while (entrada != 3)
+}
 
 /**
  * Ejercicio 2.2.25
  * Solicitar al usuario que ingrese una frase y luego informar cuál fue la palabra más larga (en caso de haber más de una, mostrar la primera) y cuántas palabras había. Precondición: se tomará como separador de palabras al carácter “ “ (espacio), ya sea uno o más.
  */
+
 
 fun ejercicio2125() {
 

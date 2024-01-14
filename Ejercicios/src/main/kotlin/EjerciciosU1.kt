@@ -86,25 +86,37 @@ fun ejercicio15(){
      * por cada elemento (it) coge el primer caracter y lo pone en mayúsculas
      */
 
-        println ("${nom.lowercase()} - ${nom.uppercase()} - ${nom.split(' ').joinToString(" " )
-        { it.replaceFirstChar (Char::uppercaseChar)}}").toString()
-        /**
+    println ("${nom.lowercase()} - ${nom.uppercase()} - ${capitalize(nom)}")
+       /**
          * - ${nom.replaceFirstChar {
          *         if (it.isLowerCase()) it.titlecase(
          *             Locale.getDefault()
          *         ) else it.toString()
          *     }}")
           */
-
     /** replace.FirstChar sólo coge el nombre, no los apellidos. Recorrer la cadena para que lo haga
      * bien. Crear una función, por ejemplo capitalize y con split en los espacios hacerlo
      */
+    /** println ("${nom.lowercase()} - ${nom.uppercase()} - ${nom.split(' ').joinToString(" " )
+    { it.replaceFirstChar (Char::uppercaseChar)}}").toString()
+     */
  }
 
-fun capitalize(){
-    val cadena: String
+/**
+ * Coge una cadena de caracteres, lo separa por palabras y a cada palabra le hace un CapitalLetter
+ *
+ * @param nombre String cadena de caracteres del nombre completo de una persona
+ *
+ * @return resultado cadena de caracteres con el nombre completo y cada palabra con CapitalLetter
+ */
 
-
+fun capitalize(nombre: String) : String {
+    val cadena = nombre.lowercase().split(' ')
+    var resultado = mutableListOf<String>()
+    for (element in cadena){
+        resultado.add(element.replaceFirstChar (Char::uppercaseChar))
+    }
+    return resultado.joinToString(" ")
 }
 
 

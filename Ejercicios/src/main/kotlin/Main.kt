@@ -231,6 +231,19 @@ fun main() {
 
     //ejercicio2115()
 
+    /**
+     * Ejercicio 2.2.18
+     * Solicitar al usuario que ingrese números enteros positivos y, por cada uno, imprimir la suma de los dígitos que lo componen. La condición de corte es que se ingrese el número -1. Al finalizar, mostrar cuántos de los números ingresados por el usuario fueron números pares.
+     */
+
+    //ejercicio2118()
+
+    /**
+     * Ejercicio 2.2.19
+     * Mostrar un menú con tres opciones: 1- comenzar programa, 2- imprimir listado, 3-finalizar programa. A continuación, el usuario debe poder seleccionar una opción (1, 2 ó 3). Si elige una opción incorrecta, informarle del error. El menú se debe volver a mostrar luego de ejecutada cada opción, permitiendo volver a elegir. Si elige las opciones 1 ó 2 se imprimirá un texto. Si elige la opción 3, se interrumpirá la impresión del menú y el programa finalizará.
+     */
+
+    //ejercicio2119()
 
     /**
      * Ejercicio 2.2.25
