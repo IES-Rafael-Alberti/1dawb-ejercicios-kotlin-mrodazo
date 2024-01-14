@@ -156,7 +156,7 @@ fun main() {
     //ejercicio208 ()
 
     /**
-    * Ejercicio 2.1.10¶
+    * Ejercicio 2.1.10
     * La pizzería Bella Napoli ofrece pizzas vegetarianas y no vegetarianas a sus clientes. Los ingredientes para cada tipo de pizza aparecen a continuación.
     *
     * Ingredientes vegetarianos: Pimiento y tofu.
@@ -165,10 +165,77 @@ fun main() {
     * Escribir un programa que pregunte al usuario si quiere una pizza vegetariana o no, y en función de su respuesta le muestre un menú con los ingredientes disponibles para que elija. Solo se puede eligir un ingrediente además de la mozzarella y el tomate que están en todas la pizzas. Al final se debe mostrar por pantalla si la pizza elegida es vegetariana o no y todos los ingredientes que lleva.
     */
 
-    ejercicio2010()
+    //ejercicio2010()
+
+    //ejercicio2010__2()
 
 
+    /**
+     * Ejercicio 2.2.2
+     * Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años que ha cumplido (desde 1 hasta su edad).
+     */
 
+    //ejercicio212()
+
+    /**
+     * Ejercicio 2.2.4
+     * Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla la cuenta atrás desde ese número hasta cero separados por comas.
+     */
+
+    //ejercicio214()
+
+    /**
+     * Ejercicio 2.2.6
+     * Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo rectángulo como el de más abajo, de altura el número introducido.
+     *
+     * *
+     * **
+     * ***
+     * ****
+     * *****
+     */
+
+    //ejercicio216()
+
+    /**
+     * Ejercicio 2.2.7
+     * Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al 10.
+     */
+
+    //ejercicio217()
+
+    /**
+     * Ejercicio 2.2.8
+     * Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo rectángulo como el de más abajo.
+     *
+     * 1
+     * 3 1
+     * 5 3 1
+     * 7 5 3 1
+     * 9 7 5 3 1
+     */
+
+    //ejercicio218()
+
+    /**
+     * Ejercicio 2.2.13
+     * Escribir un programa que muestre el eco de todo lo que el usuario introduzca hasta que el usuario escriba 'salir' que terminará.
+     */
+
+    //ejercicio2113()
+
+    /**
+     * Ejercicio 2.2.15
+     * Leer números enteros de teclado, hasta que el usuario ingrese el 0. Finalmente, mostrar la sumatoria de todos los números positivos ingresados.
+     */
+
+    //ejercicio2115()
+
+
+    /**
+     * Ejercicio 2.2.25
+     * Solicitar al usuario que ingrese una frase y luego informar cuál fue la palabra más larga (en caso de haber más de una, mostrar la primera) y cuántas palabras había. Precondición: se tomará como separador de palabras al carácter “ “ (espacio), ya sea uno o más.
+     */
 
     //ejercicio2125()
 
@@ -179,7 +246,7 @@ fun main() {
 
 
     /**
-     * Ejercicio 3.3.1¶
+     * Ejercicio 3.3.1
      * Suponer una lista con datos de las compras hechas por clientes de una empresa a lo largo de un mes, la cual contiene tuplas con información de cada venta: (cliente, día del mes, monto, domicilio del cliente). Ejemplo:
      *
      * [("Nuria Costa", 5, 12780.78, "Calle Las Flores 355"), ("Jorge Russo", 7, 699, "Mirasol 218"), ("Nuria Costa", 7, 532.90, "Calle Las Flores 355"), ("Julián Rodriguez", 12, 5715.99, "La Mancha 761"), ("Jorge Russo", 15, 958, "Mirasol 218")]

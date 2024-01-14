@@ -212,20 +212,20 @@ fun mostrarMenu(respuestaPizza: String): Set<String> {
     return menu.toSet()
 }
 
-fun comprobarIngrediente(menu: Set<String>, ingrediente: String) : Boolean  = ingrediente in menu
+fun comprobarIngrediente(menu: Set<String>, ingrediente: String): Boolean = ingrediente in menu
 
 
-fun tipoPizza (respuestaPizza: String) : String {
+fun tipoPizza(respuestaPizza: String): String {
     var pizza = ""
 
-    when(respuestaPizza) {
+    when (respuestaPizza) {
         "v" -> pizza = "vegetariana"
         "n" -> pizza = "no vegetariana"
     }
     return pizza
 }
 
-fun ingredientesElegidos (ingrediente: String) : String {
+fun ingredientesElegidos(ingrediente: String): String {
     val ingredientes = mutableListOf<String>("mozzarella", "tomate")
 
     ingredientes.add(ingrediente)
@@ -250,8 +250,7 @@ fun ejercicio2010() {
             } else {
                 println("El ingrediente que indica no está disponible, por favor elija de nuevo el tipo de pizza y un ingrediente del menú")
             }
-        }
-        else {
+        } else {
             println("El tipo de pizza escogida no la tenemos, por favor elija vegetariana (v) o no vegetariana(n)")
         }
     }
@@ -280,42 +279,257 @@ fun ejercicio2010__2() {
                     println("El ingrediente que indica no está disponible, por favor elija de nuevo el tipo de pizza y un ingrediente del menú")
                 }
             }
-        }
-        else {
+        } else {
             println("El tipo de pizza escogida no la tenemos, por favor elija vegetariana (v) o no vegetariana(n)")
         }
     }
 }
 
-        /**
-         * Ejercicio 2.1.25 creo
-         */
+/**
+ * Ejercicio 2.2.2
+ * Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años que ha cumplido (desde 1 hasta su edad).
+ */
 
-        fun ejercicio2125() {
+fun comprobarEnteroPositivo(num: String): Boolean {
+    try {
+        num.toInt() >= 0
+    } catch (e: NumberFormatException) {
+        return false
+    }
+    return true
 
-            println("Introduzca una frase")
+}
 
-            val frase = readln()
+fun mostrarIteracionNum(num: Int): String {
+    val edadCumplida = mutableListOf(1)
+    for (i in 1..(num)) {
+        edadCumplida.add(i)
+    }
+    return edadCumplida.toSet().joinToString(", ")
+}
 
-            val listaPalabras = frase.split(' ')
 
-            var palabraMayor = ""
+fun ejercicio212() {
 
-            var cont = 0
+    var exito = false
+
+    while (!exito) {
+        println("Indique su edad: ")
+        val edad = readln()
+
+        if (comprobarEnteroPositivo(edad)) {
+            println("Los años que ha cumplido son: ${mostrarIteracionNum(edad.toInt())}")
+            exito = true
+        } else {
+            println("Edad no reconocida, por favor indique un número entero positivo")
+        }
+    }
+}
+
+/**
+ * Ejercicio 2.2.4
+ * Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla la cuenta atrás desde ese número hasta cero separados por comas.
+ */
+
+fun ejercicio214() {
+    var exito = false
+
+    while (!exito) {
+        println("Indique un número entero positivo: ")
+        val num = readln()
+
+        if (comprobarEnteroPositivo(num)) {
+            println("Cuenta atrás: ${mostrarIteracionNum(num.toInt()).reversed()}, 0")
+            exito = true
+        } else {
+            println("Formato incorrecto, indique un número entero positivo")
+        }
+    }
+}
+
+/**
+ * Ejercicio 2.2.6
+ * Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo rectángulo como el de más abajo, de altura el número introducido.
+ *
+ * *
+ * **
+ * ***
+ * ****
+ * *****
+ */
+
+fun printearLineasSimbol(num: Int, simbol: String) {
+    val lineas = mutableListOf(simbol)
+    for (i in 1..(num - 1)) {
+        lineas.add(simbol)
+        println(lineas.joinToString(""))
+    }
+}
+
+fun ejercicio216() {
+    var exito = false
+
+    while (!exito) {
+        println("Indique un número entero positivo: ")
+        val num = readln()
+
+        if (comprobarEnteroPositivo(num)) {
+            println("Indique un símbolo: ")
+            val simbol = readln()
+
+            printearLineasSimbol(num.toInt(), simbol)
+            exito = true
+        } else {
+            println("Formato incorrecto, indique un número entero positivo")
+        }
+    }
+}
+
+/**
+ * Ejercicio 2.2.7
+ * Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al 10.
+ */
+
+fun ejercicio217() {
+    for (j in 1..10) {
+        for (i in 1..10) {
+            println("La tabla de multiplicar del $j es: $j * $i = " + (j * i).toString())
+        }
+    }
+
+}
 
 
-            for (palabra in listaPalabras) {
-                if (palabra.length > palabraMayor.length) {
-                    palabraMayor = palabra
-                    cont = 1
-                } else if (palabra.length == palabraMayor.length) {
-                    cont++
+/**
+ * Ejercicio 2.2.8
+ * Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo rectángulo como el de más abajo.
+ *
+ * 1
+ * 3 1
+ * 5 3 1
+ * 7 5 3 1
+ * 9 7 5 3 1
+ */
+
+fun printearTrianguloNum(num1: Int, num2: Int) {
+    val lineas = mutableListOf(1)
+    var suma = 1
+    println(lineas.joinToString(""))
+    for (i in 1..(num1 - 1)) {
+        suma += num2
+        lineas.add(suma)
+        println(lineas.joinToString("").reversed())
+    }
+}
+
+fun ejercicio218() {
+    var exito1 = false
+    var exito2 = false
+
+    while (!exito1) {
+        println("Indique un número entero positivo: ")
+        val num1 = readln()
+
+        if (comprobarEnteroPositivo(num1)) {
+            exito1 = true
+
+            while (!exito2) {
+                println("Indique un número entero positivo para progresión: ")
+                val num2 = readln()
+                if (comprobarEnteroPositivo(num2)) {
+                    exito2 = true
+                    printearTrianguloNum(num1.toInt(), num2.toInt())
+                } else {
+                    println("Formato incorrecto, indique un número entero positivo para la progresión")
                 }
             }
-
-            println(
-                "La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
-                        " hay ${listaPalabras.size} palabras."
-            )
-
+        } else {
+            println("Formato incorrecto, indique un número entero positivo")
         }
+    }
+}
+
+/**
+ * Ejercicio 2.2.13
+ * Escribir un programa que muestre el eco de todo lo que el usuario introduzca hasta que el usuario escriba
+ * 'salir' que terminará.
+ */
+
+fun ejercicio2113() {
+    var terminar = false
+    var eco: String
+    while (!terminar) {
+        println("Introduzca una frase o palabra (escribir solamente 'salir' para terminar): ")
+        eco = readln().lowercase()
+        if (eco != "salir"){
+            println(eco)
+        }
+        else{
+            println("Fin")
+            terminar = true
+        }
+    }
+}
+
+
+/**
+ * Ejercicio 2.2.15
+ * Leer números enteros de teclado, hasta que el usuario ingrese el 0. Finalmente, mostrar la sumatoria de todos los números positivos ingresados.
+ */
+
+fun ejercicio2115() {
+
+    var sum = 0
+    var ceroIntroducido = false
+
+    while (!ceroIntroducido) {
+        println("Ingrese un número y pulse 'enter' (marcar '0' para terminar): ")
+        var entrada = readln()
+        if (comprobarEnteroPositivo(entrada)) {
+            var num = entrada.toInt()
+            if (num != 0) {
+                sum += num
+            } else {
+                ceroIntroducido = true
+            }
+        } else {
+            println("Error en formato. Ingrese un número y pulse 'enter' (marcar '0' para terminar): ")
+        }
+    }
+    println("La suma de todos los números ingresados es: $sum")
+}
+
+
+/**
+ * Ejercicio 2.2.25
+ * Solicitar al usuario que ingrese una frase y luego informar cuál fue la palabra más larga (en caso de haber más de una, mostrar la primera) y cuántas palabras había. Precondición: se tomará como separador de palabras al carácter “ “ (espacio), ya sea uno o más.
+ */
+
+fun ejercicio2125() {
+
+    println("Introduzca una frase")
+
+    val frase = readln()
+
+    val listaPalabras = frase.split(' ')
+
+    var palabraMayor = ""
+
+    var cont = 0
+
+
+    for (palabra in listaPalabras) {
+        if (palabra.length > palabraMayor.length) {
+            palabraMayor = palabra
+            cont = 1
+        } else if (palabra.length == palabraMayor.length) {
+            cont++
+        }
+    }
+
+    println(
+        "La palabra mayor es $palabraMayor y aparecen $cont palabras del mismo tamaño, en total" +
+                " hay ${listaPalabras.size} palabras."
+    )
+
+}
